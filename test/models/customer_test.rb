@@ -1,9 +1,51 @@
 require "test_helper"
 
 describe Customer do
-  let(:customer) { Customer.new }
+  describe "validations" do
+    it "Customer is invalid without a name" do
+      customer = Customer.new
+      result = customer.valid?
+      result.must_equal false
 
-  it "must be valid" do
-    value(customer).must_be :valid?
+      customer.errors.messages.must_include :name
+    end
+
+    it "Creates Customer with name" do
+      customer = Customer.create(name: "Sofia")
+      customer.errors.messages.wont_include :name
+    end
+
+    it "Customer is invalid without an empty name field" do
+      customer = Customer.new(name: "")
+      result = customer.valid?
+      result.must_equal false
+
+      customer.errors.messages.must_include :name
+    end
+
+    it "Customer is invalid without a phone" do
+      customer = Customer.new
+      result = customer.valid?
+      result.must_equal false
+
+      customer.errors.messages.must_include :phone
+    end
+
+    it "Creates Customer with phone" do
+      customer = Customer.create(phone: "Sofia")
+      customer.errors.messages.wont_include :phone
+    end
+
+    it "Customer is invalid without an empty phone field" do
+      customer = Customer.new(phone: "")
+      result = customer.valid?
+      result.must_equal false
+
+      customer.errors.messages.must_include :phone
+    end
+  end
+
+  describe "relationships" do
+    
   end
 end
