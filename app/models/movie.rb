@@ -3,4 +3,5 @@ class Movie < ApplicationRecord
   has_many :customers, through: :movie_customers
 
   validates :title, presence: true
+  validates :inventory, presence: true
 end

@@ -3,4 +3,5 @@ class Customer < ApplicationRecord
   has_many :movies, through: :movie_customers
 
   validates :name, presence: true
+  validates :phone, presence: true
 end
