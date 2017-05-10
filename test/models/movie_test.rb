@@ -43,5 +43,21 @@ describe Movie do
 
       movie.errors.messages.must_include :inventory
     end
+
+    describe "relationships" do
+      it "has a customer" do
+        movie = movies(:lalaland)
+        movie.must_respond_to :customers
+        movie.customers.each do |customer|
+          customer.must_be_kind_of Customer
+        end
+      end
+
+      it "should have many customers" do
+        movie = movies(:titanic)
+        movie.customers.count.must_equal 2
+      end
+
+    end
   end
 end

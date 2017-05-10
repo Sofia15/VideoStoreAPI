@@ -46,6 +46,19 @@ describe Customer do
   end
 
   describe "relationships" do
-    
+    it "has a movie" do
+      dan = customers(:dan)
+      dan.must_respond_to :movies
+      dan.movies.each do |movie|
+        movie.must_be_kind_of Movie
+      end
+    end
+
+    it "should have many movies" do
+      dan = customers(:dan)
+      dan.movies.count.must_equal 2
+    end
   end
+
+
 end
