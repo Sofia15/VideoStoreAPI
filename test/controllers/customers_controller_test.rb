@@ -32,7 +32,7 @@ describe CustomersController do
     end
 
     it "returns customers with the right fields" do
-      fields = %w(id movies_checked_out_count name phone postal_code registered_at)
+      fields = %w(id name phone postal_code registered_at)
       get customers_url
       body = JSON.parse(response.body)
       body.each do |customer|
