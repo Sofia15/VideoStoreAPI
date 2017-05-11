@@ -40,4 +40,11 @@ describe MoviesController do
       end
     end
   end
+  describe "show" do
+    it "can get a movie" do
+      get movies_path(movies(:lalaland).title)
+      must_respond_with :success
+    end
+
+  end
 end
