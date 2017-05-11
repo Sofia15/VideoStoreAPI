@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
 
   def show
     movie = Movie.find_by(title: params[:title])
-    if !movie.nil?
+    if movie
       render :json => movie, status: :ok
     else
       render status: :not_found, json: {errors: "#{params[:title]} not found in the database."}

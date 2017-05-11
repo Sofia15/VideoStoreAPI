@@ -42,8 +42,13 @@ describe MoviesController do
   end
   describe "show" do
     it "can get a movie" do
-      get movies_path(movies(:lalaland).title)
+      get movie_path(movies(:lalaland).title)
       must_respond_with :success
+    end
+
+    it "will show an error message with no movie found" do
+      get movie_path("hello_sofia")
+      must_respond_with :not_found
     end
 
   end
