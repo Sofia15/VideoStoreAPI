@@ -1,31 +1,18 @@
 class RentalsController < ApplicationController
-  attr_accessor :movie_id, :customer_id, :checkout_date, :due_date
-  #
-  # def initialize
-  #   @movie_id = movie_id
-  #   @customer_id = customer_id
-  #   @checkout_date = checkout_date
-  #   @due_date = due_date
-  # end
-
+  # attr_accessor :movie_id, :customer_id, :checkout_date, :due_date
 
   def checkout
-    # params = {
-    #   customer_id: rental_params,
-    #   movie_id: Movie.find_by(title: params[:title]).id,
-    #   checkout_date: Time.zone.now.beginning_of_day,
-    #   due_date: Time.zone.now.beginning_of_day + 5
-    movie = Movie.find_by(title: params[:title]).id
+    movie = Movie.find_by(title: params[:title])
     rental_info = {
       customer_id: rental_params[:id],
-      movie_id: movie,
-      checkout_date: "Right freaking now",
-      due_date: "Right freaking now"
+      movie_id: movie.id,
+      checkout_date: Date.today,
+      due_date: Date.today + 5
     }
     rental = Rental.new(rental_info)
 
     if rental.save!
-      render status: :ok, json: {id: rental.id}
+      render status: :ok, json: {message: "Thanks for checking out #{movie.title}. Your due date is #{rental.due_date}."}
     else
       render status: :bad_request, json: {errors: rental.errors.messages}
     end
