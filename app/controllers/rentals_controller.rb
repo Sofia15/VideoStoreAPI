@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
       customer_id: rental_params[:id],
       movie_id: movie.id,
       checkout_date: Date.today,
-      due_date: Date.today - 5
+      due_date: Date.today + 7
     }
     rental = Rental.new(rental_info)
 
