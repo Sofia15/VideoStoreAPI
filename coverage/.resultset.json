@@ -171,36 +171,6 @@
         1,
         null
       ],
-      "/Users/TW/ada/exercises/projects/VideoStoreAPI/test/models/movie_customer_test.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/TW/ada/exercises/projects/VideoStoreAPI/app/models/movie_customer.rb": [
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
       "/Users/TW/ada/exercises/projects/VideoStoreAPI/test/models/movie_test.rb": [
         1,
         null,
@@ -275,10 +245,33 @@
         1,
         null
       ],
-      "/Users/TW/ada/exercises/projects/VideoStoreAPI/app/serializers/movie_serializer.rb": [
+      "/Users/TW/ada/exercises/projects/VideoStoreAPI/test/models/rental_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/TW/ada/exercises/projects/VideoStoreAPI/app/models/rental.rb": [
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -286,8 +279,15 @@
         1,
         1,
         null
+      ],
+      "/Users/TW/ada/exercises/projects/VideoStoreAPI/app/serializers/movie_serializer.rb": [
+        1,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1494609741
+    "timestamp": 1494610501
   }
 }

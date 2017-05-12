@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509225633) do
+ActiveRecord::Schema.define(version: 20170512172726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,17 +29,6 @@ ActiveRecord::Schema.define(version: 20170509225633) do
     t.float    "account_credit"
   end
 
-  create_table "movie_customers", force: :cascade do |t|
-    t.integer  "movie_id"
-    t.integer  "customer_id"
-    t.string   "checkout_date"
-    t.string   "due_date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["customer_id"], name: "index_movie_customers_on_customer_id", using: :btree
-    t.index ["movie_id"], name: "index_movie_customers_on_movie_id", using: :btree
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "overview"
@@ -48,6 +37,17 @@ ActiveRecord::Schema.define(version: 20170509225633) do
     t.integer  "available_inventory"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "customer_id"
+    t.string   "checkout_date"
+    t.string   "due_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["customer_id"], name: "index_rentals_on_customer_id", using: :btree
+    t.index ["movie_id"], name: "index_rentals_on_movie_id", using: :btree
   end
 
 end

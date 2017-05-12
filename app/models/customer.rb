@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
-  has_many :movie_customers
-  has_many :movies, through: :movie_customers
+  has_many :rentals
+  has_many :movies, through: :rentals
 
   validates :name, presence: true
   validates :phone, presence: true
