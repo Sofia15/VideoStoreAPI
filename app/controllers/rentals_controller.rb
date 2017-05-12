@@ -19,14 +19,15 @@ class RentalsController < ApplicationController
   end
 
   def checkin
-    rental = Rental.find_by(params[:rental][:id])
+    rental = Rental.find_by(id: params[:rentals][:id])
+
     checkin_info = {
-
+      checkin_date: Date.today
     }
-    rental = Rental.new(rental_info)
+    rental = Rental.update(checkin_info)
 
-    if rental.save!
-      render status: :ok, json: {message: "Thanks for checking out #{movie.title}. Your due date is #{rental.due_date}."}
+    if rental
+      render status: :ok, json: {message: "Thanks for checking in!"}
     else
       render status: :bad_request, json: {errors: rental.errors.messages}
     end
