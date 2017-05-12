@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
       customer_id: rental_params[:id],
       movie_id: movie.id,
       checkout_date: Date.today,
-      due_date: Date.today + 5
+      due_date: Date.today - 5
     }
     rental = Rental.new(rental_info)
 
@@ -30,6 +30,16 @@ class RentalsController < ApplicationController
       render status: :ok, json: {message: "Thanks for checking in!"}
     else
       render status: :bad_request, json: {errors: rental.errors.messages}
+    end
+  end
+
+  def overdue
+    overdue_rentals = Rental.overdue
+
+    if overdue_rentals
+      render :json => overdue_rentals, status: :ok
+    else
+      render status: :not_found, json: {errors: "overdue not found in db."}
     end
   end
 
