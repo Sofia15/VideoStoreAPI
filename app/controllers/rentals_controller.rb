@@ -1,6 +1,4 @@
 class RentalsController < ApplicationController
-  # attr_accessor :movie_id, :customer_id, :checkout_date, :due_date
-
   def checkout
     movie = Movie.find_by(title: params[:title])
     rental_info = {
