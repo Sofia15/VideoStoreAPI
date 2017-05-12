@@ -13,6 +13,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def checkout
+    
+  end
+
   # def zomg
   #   render :json => "it works"
   # end
