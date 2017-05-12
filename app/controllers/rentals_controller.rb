@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   def checkout
     movie = Movie.find_by(title: params[:title])
     rental_info = {
-      customer_id: rental_params[:id],
+      customer_id: rental_params[:customer_id],
       movie_id: movie.id,
       checkout_date: Date.today,
       due_date: Date.today + 7
@@ -44,7 +44,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:customers).permit(:id)
+    params.permit(:customer_id)
   end
 
 end
