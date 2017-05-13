@@ -1,12 +1,15 @@
 class RentalsController < ApplicationController
   def checkout
+    byebug
     movie = Movie.find_by(title: params[:title])
+
     rental_info = {
-      customer_id: rental_params[:customer_id],
+      customer_id: customer_params[:customer_id],
       movie_id: movie.id,
       checkout_date: Date.today,
-      due_date: Date.today + 7
+      due_date: Date.today - 7
     }
+
     rental = Rental.new(rental_info)
 
     if rental.save!
@@ -17,7 +20,7 @@ class RentalsController < ApplicationController
   end
 
   def checkin
-    rental = Rental.find_by(id: params[:rentals][:id])
+    rental = Rental.find_by(id: params[:rental][:id])
 
     checkin_info = {
       checkin_date: Date.today
@@ -42,9 +45,8 @@ class RentalsController < ApplicationController
   end
 
   private
-
-  def rental_params
-    params.permit(:customer_id)
+  def customer_params
+    params.require(:customer).permit(:customer_id)
   end
 
 end
