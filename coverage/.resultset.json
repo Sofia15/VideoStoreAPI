@@ -112,7 +112,7 @@
       "/Users/sofia/Desktop/VideoStoreAPI-sofia/app/controllers/rentals_controller.rb": [
         1,
         1,
-        1,
+        null,
         1,
         null,
         1,
@@ -354,19 +354,19 @@
         null,
         null
       ],
-      "/Users/sofia/Desktop/VideoStoreAPI-sofia/app/serializers/customer_serializer.rb": [
-        1,
-        1,
-        null
-      ],
       "/Users/sofia/Desktop/VideoStoreAPI-sofia/app/serializers/movie_serializer.rb": [
         1,
         1,
         null,
         null,
         null
+      ],
+      "/Users/sofia/Desktop/VideoStoreAPI-sofia/app/serializers/customer_serializer.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1494709511
+    "timestamp": 1494712668
   }
 }
